@@ -1,36 +1,56 @@
 package stockaccountmanagement;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Scanner;
 
 public class Stock {
-    List<StockPortfolio> stocks = new ArrayList<>();
-    StockPortfolio stockPortfolio = new StockPortfolio();
+    private String stockName;
+    private int numberOfShare;
+    private int sharePrice;
+    private int numberOfStocks;
 
-    void stockCalculator() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter name of Stock: ");
-        String stockName = stockPortfolio.setStockName(sc.next());
-        System.out.println("Enter number of Stocks: ");
-        int numberOfStocks = stockPortfolio.setNumberOfStocks(sc.nextInt());
-        System.out.println("Enter number of shares: ");
-        int numberOfShares = stockPortfolio.setNumberOfShare(sc.nextInt());
-        System.out.println("Enter price of share: ");
-        System.out.println("Name of the Stock: " + stockPortfolio.getStockName() + "Number of stocks: " + stockPortfolio.getNumberOfStocks() + "Number of Share: " + stockPortfolio.getNumberOfShares() + "Share Price: " + stockPortfolio.getSharePrice());
-        stocks.add(stockPortfolio);
-        int sharePrice = stockPortfolio.setSharePrice(sc.nextInt());
-        Iterator<StockPortfolio> stockPortfolioIterator = stocks.listIterator();
-        while (stockPortfolioIterator.hasNext()) {
-            StockPortfolio stockPortfolioCalculate = stockPortfolioIterator.next();
-            if (stockName.equals(stockPortfolioCalculate.getStockName())) {
-                int valueOfEachStock = sharePrice / numberOfStocks;
-                int totalValueOfStock = sharePrice * numberOfShares;
-                System.out.println("-----------------------------------------");
-                System.out.println("Value of each stock: " + valueOfEachStock);
-                System.out.println("Total Value of Stocks: " + totalValueOfStock);
-            }
-        }
+    public String getStockName() {
+        return stockName;
+    }
+
+    public void setStockName(String stockName) {
+        this.stockName = stockName;
+    }
+
+    public int getNumberOfShare() {
+        return numberOfShare;
+    }
+
+    public void setNumberOfShare(int numberOfShare) {
+        this.numberOfShare = numberOfShare;
+    }
+
+    public int getSharePrice() {
+        return sharePrice;
+    }
+
+    public void setSharePrice(int sharePrice) {
+        this.sharePrice = sharePrice;
+    }
+
+    public int getNumberOfStocks() {
+        return numberOfStocks;
+    }
+
+    public void setNumberOfStocks(int numberOfStocks) {
+        this.numberOfStocks = numberOfStocks;
+    }
+
+    @Override
+    public String toString() {
+        return "StockPortfolio{" +
+                "stockName='" + stockName + '\'' +
+                ", numberOfShare=" + numberOfShare +
+                ", sharePrice=" + sharePrice +
+                ", numberOfStocks=" + numberOfStocks +
+                '}';
     }
 }
+
+
+
